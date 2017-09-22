@@ -10,8 +10,8 @@ Dans ce laboratoire nous nous intéressons à la sauvegarde externe en utilisant
 ## TABLE DES MATIERES 
 1. [Tâche 1: Préparation du disque de sauvegarde](#t%C3%82che-1-preparation-du-disque-de-sauvegarde)
 2. [Tâche 2: Test de sauvegarde en utilisant ZIP et TAR](#t%C3%82che-2-test-de-sauvegarde-en-utilisant-zip-et-tar)
-3. [Tâche 3: Sauvegarde des fichiers de metadonnées](#t%C3%82che-3-sauvegarde-des-fichiers-de-metadonnes)
-4. [Tâche 4: Liens dur et symboliques](#t%C3%82che-4-liens-duRS-et-symboliques)
+3. [Tâche 3: Sauvegarde des fichiers de metadonnées](#t%C3%82che-3-sauvegarde-des-fichiers-de-metadonnees)
+4. [Tâche 4: Liens dur et symboliques](#t%C3%82che-4-liens-durs-et-symboliques)
 
 ## TÂCHE 1: PREPARATION DU DISQUE DE SAUVEGARDE
 
