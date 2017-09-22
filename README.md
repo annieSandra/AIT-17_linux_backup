@@ -1,1 +1,6 @@
-# AIT-17_linux_backup
+# LABORATOIRE 01 - LINUX BACKUP
+
+## ETUDIANTS 
+
+* HARBAOUI Yosra
+* DONGMO NGOUMNAI Annie Sandra
