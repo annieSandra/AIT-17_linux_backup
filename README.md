@@ -28,7 +28,7 @@ Après l'avoir attaché nous allons de nouveau consulter les partitions visibles
 ![](images/Task1_2b.png);
  Ce sont les partitions de notre disque dur virtuel attaché!! :)
  
- 3. Nous allons maintenant utiliser la commande `parted` pour visualiser les caracteristiques, partitionner notre disque dur attaché (en 2 parties égales). Ainsi après utilisation de la commande `parted sdb` et `print` pour visualiser les partitions du disque de sauvegarde et leur caractéristiques on obtient : 
+3. Nous allons maintenant utiliser la commande `parted` pour visualiser les caracteristiques, partitionner notre disque dur attaché (en 2 parties égales). Ainsi après utilisation de la commande `parted sdb` et `print` pour visualiser les partitions du disque de sauvegarde et leur caractéristiques on obtient : 
  ![](images/Task1_3ab_LI.jpg);
  
  Ensuite nous utilisons la commande `mktable` pour créer une nouvelle table de partition `msdos` avec `MBR`(secteur bootable) écrasant celle qui existait déjà comme suit: 
@@ -55,9 +55,44 @@ Dans cette partie nous allons utiliser `ZIP` et `TAR` pour faire la sauvegarde e
 et `zip -r archives.zip /home` cela en se placant dans le repertoire `/backup1`.
 ![](images/Task2_1.png);
 
--> listing des fichier sauvegarder  à l'aide des commandes `tar -tf archive.tar.gz` et `zip archive.zip`
+-> listing des fichiers sauvegarder  à l'aide des commandes `tar -tf archive.tar.gz` et `unzip -l archives.zip`
+![](images/Task2_2.png);
+![](images/Task2_2b.png);
+![](images/Task2_2c.png);
+
+-> restauration des fichiers dans le repertoire `/tmp` à l'aide des commandes `tar -xf archive.tar.gz` et `unzip -l archives.zip`
+![](images/Task2_3.png);
+![](images/Task2_1c3.png);
+
+-> Sauvegarde incremental depuis le  `September 23, 2016, 10:42:33` en utlisant la commande `tar`: ainsi nous avons utilisé la commande find pour recherche les fichiers modifier depuis la date donée jusque la date du 05 octobre 2017 ensuite nous avons utiliser un pipe pour récupérée cette sortie et l'envoyer à l'entrée de la commande TAR qui effectuera la sauvegarde. `find /home -mtime $(date +%s -d"Oct 5, 2017 09:42:25" ) -mtime $(date +%s -d"Sep 23, 2016 10:42:33") | sudo tar cz -T - -f incrementalBackup1.tar.gz`. 
+![](images/Task2_4.png);
+
 
 ## TÂCHE 3: SAUVEGARDE DES FICHIERS DE METADONNEES
 
-## TÂCHE 4: LIENS physique ET SYMBOLIQUES
+Dans cette tâche nous allons annalysé les métadonnées des fichiers après une sauvegarde et restauration de ceux ci à l'aide des commandes `ZIP` et `TAR`.
+Tout d'abord nous allons crée un repertoire nommé `/testRepertory` avec la commande `mkdir /testRepertory` dans lequel nous créons un fichier `testFile` (propriétaire `sandra`) avec la commande `touch testFile`. Ensuite, nous avons crée un nouvel utilisateur `yosra` à l'aide de la commande `sudo adduser yosra` comme suit : 
+![](images/Task3_1a.png);
+![](images/Task3_1b.png);
+ Puis nous avons modifier le propriétaire du fichier (qui était `sandra`) en `yosra`crée précedement, effectuer une sauvegarde et restauration avec la commande tar comme suit (voire capture): 
+![](images/Task3_1c.png);
+ On remarque qu'il n'y a aucun changement au niveau de la date de dernière modification et des permissions mais le propriétaire du fichier restaurer est devenu celui du repertoire de restauration `restaurationFiles`.
+ 
+ Après une sauvegarde et une restauration avec la commande `ZIP` comme suit : 
+ ![](images/Task3_1d.png);
+  On remarque qu'il n'y a aucun changement au niveau de la date de dernière modification et des permissions mais le propriétaire du fichier restaurer est devenu celui du repertoire de sauvegarde `/backup1`. 
+
+## TÂCHE 4: LIENS PHYSIQUE ET SYMBOLIQUES
+
+Dans cette partie nous allons analyser les liens physiques et symboliques après une sauvergarde et restauration de certains fichiers. Pour cela nous allons créer un repertoire dans lequel on créera un fichier `testFile1` avec un lien symbolique `fileSymb` , puis un autre fichier `testFile2`avec un lien physique `fileHard`.
+ ![](images/Task4_1.png);
+ 
+ Après une sauvegarde et une restauration avec la commande `tar` comme suit : 
+  ![](images/Task4_2.png);
+ on remarque que les liens Symbolique et physiques sont toujours présent
+ 
+ Après une sauvegarde et une restauration avec la commande `zip` comme suit : 
+  ![](images/Task4_2.png);
+ on remarque que les liens Symbolique et physiques ont disparus
+
 
