@@ -51,7 +51,7 @@ Après utilisation de la commande `parted sdb` et `print` pour visualiser les pa
  ![](images/task1_print_free.PNG)  
 
  Enfin, nous créons 2 partitions égales en partageant l'espace disponible à l'aide de la commande `mkpart`.  
- La première, étant primaire, avec un système fichier de type **fat32** , commençant à **0** et finissant à **5350 MB** à l'aide la commande `mkpart fat32 0 5350`. La deuxème primaire, avec un système fichier de type **ext4**, commençant à **5350 MB** et finnissant à **7010 MB** à l'aide de la commande suivante:  `mkpart ext4 5350 1070`. Ainsi, après vérification nous obtenons 2 partitions égales.  
+ La première, étant primaire, avec un système fichier de type **fat32** , commençant à **0** et finissant à **1340 MB** à l'aide la commande `mkpart fat32 0 1340`. La deuxème primaire, avec un système fichier de type **ext4**, commençant à **1340 MB** et finnissant à **2680 MB** à l'aide de la commande suivante:  `mkpart ext4 5350 1070`. Ainsi, après vérification nous obtenons 2 partitions égales.  
 
  ![](images/task1_mkpart.PNG)  
 
