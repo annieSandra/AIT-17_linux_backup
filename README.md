@@ -25,9 +25,9 @@ Dans tout le long du labo, nous allons utiliser un disque dur virtuelle comme di
 
  ![](images/Task1_1b.png)
 
- Nous remarquons que, parmi les 4 partions existantes, il n'y a qu'une seule qui est montée soit la 1ère **sda1**. Cela est tout à fait explicable. En effet, nous allons voir, par la suite, que notre machine a 2 disques vides inutilisables, ce qui correspond aux 2 autres partitions.
+ Nous remarquons que, parmi les 3 partitions existantes, il n'y a qu'une seule qui est montée soit la 1ère **sda1**.
 
-2. Après analyse des partitions visible du disque de notre machine, nous allons rattacher à celle ci le disque dur virtuel **win7** d'une machine virtuelle Windows créée au préalable avec les caractéristiques suivantes:  
+2. Après analyse des partitions visibles du disque de notre machine, nous allons rattacher à celle ci le disque dur virtuel **win7** d'une machine virtuelle Windows créée au préalable avec les caractéristiques suivantes:  
 
  ![](images/Task1_2a.png)  
 
