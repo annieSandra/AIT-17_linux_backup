@@ -27,11 +27,11 @@ Dans tout le long du labo, nous allons utiliser un disque dur virtuelle comme di
 
  Nous remarquons que, parmi les 4 partions existantes, il n'y a qu'une seule qui est montée soit la 1ère **sda1**. Cela est tout à fait explicable. En effet, nous allons voir, par la suite, que notre machine a 2 disques vides inutilisables, ce qui correspond aux 2 autres partitions.
 
-2. Après analyse des partitions de disque visible dans notre machine, nous allons rattacher cette dernière au disque dur **win7** d'une machine virtuelle Windows créée au préalable avec les caractéristiques suivantes:  
+2. Après analyse des partitions visible du disque de notre machine, nous allons rattacher à celle ci le disque dur virtuel **win7** d'une machine virtuelle Windows créée au préalable avec les caractéristiques suivantes:  
 
  ![](images/Task1_2a.png)  
 
- Après cette manipulation, nous allons, de nouveau, consulter les partitions visibles dans notre machine. Nous obtenons des nouvelles partitions `sdb` comme le montre la figure suivante:  
+ Après cette manipulation, nous allons, de nouveau, consulter les partitions visibles dans notre machine. Nous obtenons une nouvelle partition `sdb` comme le montre la figure suivante:  
 
  ![](images/Task1_1.PNG)  
 
@@ -55,7 +55,7 @@ Après utilisation de la commande `parted sdb` et `print` pour visualiser les pa
 
  ![](images/task1_mkpart.PNG)  
 
- Afin de vérifier la taille de chaque patitions, nous avons visualiser les 2 partitions égales du disque à l'aide de la commande `print free`.  
+ Afin de vérifier la taille et l'espace  disponible dans chaque patitions, nous avons visualisé les 2 partitions égales du disque à l'aide de la commande `print free`.  
 
  ![](images/task1_print_free_2.PNG)
 
@@ -67,7 +67,7 @@ Après utilisation de la commande `parted sdb` et `print` pour visualiser les pa
 
   ![](images/Task1_5.png);
 
-6. Nous visualisons maintenant la taille disponible dans les disques avec les commandes `df -h backup1` et `df -h backup2`.  
+6. Nous visualisons maintenant l'espace disponible dans les disques avec les commandes `df -h backup1` et `df -h backup2`.  
 
  ![](images/task1_6.PNG);
 
@@ -78,7 +78,7 @@ Dans cette partie, nous allons utiliser `ZIP` et `TAR` pour faire la sauvegarde 
 
 ![](images/Task2_1.png)
 
--> listing des fichiers sauvegarder  à l'aide des commandes `tar -tf archive.tar.gz` et `unzip -l archives.zip`.  
+-> listing des fichiers sauvegardés  à l'aide des commandes `tar -tf archive.tar.gz` et `unzip -l archives.zip`.  
 
 ![](images/Task2_2.png)  
 
@@ -92,7 +92,7 @@ Dans cette partie, nous allons utiliser `ZIP` et `TAR` pour faire la sauvegarde 
 
 ![](images/Task2_1c3.png)
 
--> Sauvegarde incremental depuis le  **September 23, 2016, 10:42:33** en utlisant la commande `tar`. Tout d'abord, nous avons utilisé la commande find pour recherche les fichiers modifiés depuis la date donée jusque la date du 05 octobre 2017. Ensuite, nous avons utiliser un pipe pour récupérer cette sortie et l'envoyer à l'entrée de la commande `tar` qui effectuera la sauvegarde.  
+-> Sauvegarde incremental depuis le  **September 23, 2016, 10:42:33** en utlisant la commande `tar`. Tout d'abord, nous avons utilisé la commande `find` pour rechercher les fichiers modifiés depuis la date donnée jusque la date du 05 octobre 2017. Ensuite, nous avons utilisé un pipe pour récupérer cette sortie et l'envoyer à l'entrée de la commande `tar` qui effectuera la sauvegarde.  
 `find /home -mtime $(date +%s -d"Oct 5, 2017 09:42:25" ) -mtime $(date +%s -d"Sep 23, 2016 10:42:33") | sudo tar cz -T - -f incrementalBackup1.tar.gz`.  
 
 ![](images/Task2_4.png);
@@ -111,13 +111,13 @@ Puis, nous avons modifier le propriétaire du fichier (qui était **sandra**) en
 
 ![](images/Task3_1c.png)  
 
-Nous remarquons qu'il n'y a aucun changement ni au niveau de la date de la dernière modification ni au niveau des permissions. Cependant, le propriétaire du fichier restauré est devenu celui du repertoire de restauration, soit **restaurationFiles**.
+Nous remarquons qu'il n'y a aucun changement ni au niveau de la date de la dernière modification ni au niveau des permissions. Cependant, le propriétaire du fichier restauré(`yosra`) est devenu celui du repertoire de restauration(`sandra`), soit **restaurationFiles**.
 
  Après une sauvegarde et une restauration avec la commande `ZIP` comme suit :  
 
  ![](images/Task3_1d.png)  
 
- Nous remarquons qu'il n'y a aucun changement ni au niveau de la date de la dernière modification ni au niveau des permissions. Cependant, le propriétaire du fichier restauré est devenu celui du repertoire de sauvegarde, soit **/backup1**.
+ Nous remarquons qu'il n'y a aucun changement ni au niveau de la date de la dernière modification ni au niveau des permissions. Cependant, le propriétaire du fichier restauré(`yosra`) est devenu celui du repertoire de sauvegarde(`root`), soit **/backup1**.
 
 ## TÂCHE 4: LIENS PHYSIQUE ET SYMBOLIQUES
 
@@ -135,4 +135,4 @@ Après une sauvegarde et une restauration avec la commande `zip` comme suit :
 
 ![](images/Task4_2.png)  
 
-Nous remarquons que les liens Symboliques et physiques ont disparu.
+Nous remarquons que les liens Symboliques et physiques ont disparus.
