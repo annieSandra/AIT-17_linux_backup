@@ -133,6 +133,6 @@ Nous remarquons que les liens Symboliques et physiques sont toujours présents.
 
 Après une sauvegarde et une restauration avec la commande `zip` comme suit :  
 
-![](images/Task4_2.png)  
+![](images/Task4_3.png)  
 
 Nous remarquons que les liens Symboliques et physiques ont disparus.
